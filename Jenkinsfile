@@ -9,6 +9,7 @@ pipeline {
         }
         stage('build') {
             steps {
+                sh 'mvn clean package'
                 sh 'docker build . -t stackfortech/spring-boot-docker:1.0.0'
             }
         }
