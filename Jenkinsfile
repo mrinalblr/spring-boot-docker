@@ -12,6 +12,11 @@ pipeline {
                 sh 'docker build . -t stackfortech/spring-boot-docker:1.0.0'
             }
         }
+        stage('deploy'){
+            steps{
+                sh 'docker run -p 8082:8082 -d --name spring-boot-docker-app stackfortech/spring-boot-docker:1.0.0' 
+            }
+        }
         
     }
     post{
