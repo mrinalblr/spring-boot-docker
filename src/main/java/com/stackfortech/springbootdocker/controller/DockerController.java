@@ -13,4 +13,10 @@ public class DockerController {
 
         return "Hello from endpoint exposed inside a docker container";
     }
+
+    @GetMapping("/logout")
+    public String logout(){
+
+        return "You are successfully signed out.";
+    }
 }
