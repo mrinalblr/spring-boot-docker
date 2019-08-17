@@ -1,17 +1,10 @@
 pipeline {
-    agent {  }
-    environment {
-        DISBALE_AUTH = 'true'
-        DB_ENGINE = 'sqlite'
-    }
+    agent { none }
+    
     stages {
         stage('init'){
             steps{
                 sh 'echo initializing step'
-                sh '''
-                    echo multiline steps work too
-                    ls -lah 
-                '''
             }
         }
         stage('build') {
