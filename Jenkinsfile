@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
-    environment {
-        DISBALE_AUTH = 'true'
-        DB_ENGINE = 'sqlite'
-    }
+    // agent { docker { image 'maven:3.3.3' } }
+    // environment {
+    //     DISBALE_AUTH = 'true'
+    //     DB_ENGINE = 'sqlite'
+    // }
     stages {
         stage('init'){
             steps{
@@ -16,8 +16,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'printenv'
-                sh 'mvn --version'
+                sh 'docker build . -t stackfortech/spring-boot-docker:1.0.0'
             }
         }
         
