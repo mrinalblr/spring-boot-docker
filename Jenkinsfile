@@ -1,9 +1,9 @@
 pipeline {
-    // agent { docker { image 'maven:3.3.3' } }
-    // environment {
-    //     DISBALE_AUTH = 'true'
-    //     DB_ENGINE = 'sqlite'
-    // }
+    agent {  }
+    environment {
+        DISBALE_AUTH = 'true'
+        DB_ENGINE = 'sqlite'
+    }
     stages {
         stage('init'){
             steps{
