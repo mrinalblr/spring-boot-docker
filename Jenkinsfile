@@ -21,7 +21,7 @@ pipeline {
 
             steps{
                 withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-password')]) {
-                    echo '${docker-hub-password}'
+                    echo "${docker-hub-password}"
                     sh "docker login -u stackfortech -p ${docker-hub-password}"
                  }
                 sh 'docker push stackfortech/spring-boot-docker:1.0.0'
