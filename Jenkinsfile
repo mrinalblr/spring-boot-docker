@@ -9,7 +9,9 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'mvn clean package'
+                def mavenHome = tool name: 'usr/local/maven', type: 'maven'
+                def mavenCMD = "${mavenHome}/bin/mvn"
+                sh "${mavenCMD} clean package"
                 sh 'docker build . -t stackfortech/spring-boot-docker:1.0.0'
             }
         }
