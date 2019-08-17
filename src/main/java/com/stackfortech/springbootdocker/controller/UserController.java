@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.ws.Response;
 
-@RestController()
+@RestController
 @RequestMapping("/api")
 public class UserController {
 
