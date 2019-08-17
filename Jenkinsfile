@@ -18,11 +18,11 @@ pipeline {
             }
         }
         stage('Publish to Docker Registry'){
-           withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-password')]) {
-               sh "docker login -u stackfortech -p ${docker-hub-password}"
-           }
-            steps{
 
+            steps{
+                withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-password')]) {
+                               sh "docker login -u stackfortech -p ${docker-hub-password}"
+                 }
                 sh 'docker push stackfortech/spring-boot-docker:1.0.0'
             }
         }
