@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+    environment{
+       mavenHome = tool name: 'usr/local/maven', type: 'maven'
+       mavenCMD = "${mavenHome}/bin/mvn"
+    }
     stages {
         stage('init'){
             steps{
@@ -8,8 +11,7 @@ pipeline {
             }
         }
         stage('build') {
-           def mavenHome = tool name: 'usr/local/maven', type: 'maven'
-           def mavenCMD = "${mavenHome}/bin/mvn"
+
             steps {
                 sh "${mavenCMD} clean package"
                 sh 'docker build . -t stackfortech/spring-boot-docker:1.0.0'
