@@ -15,4 +15,8 @@ public class UserController {
     public User getUser(){
         return new User("stackfortech","Version Control | Github Tutorial | GIT | DevOps","DevOps");
     }
+    @GetMapping("/healthcheck")
+    public String healthcheck(){
+        return "Health:OK";
+    }
 }
